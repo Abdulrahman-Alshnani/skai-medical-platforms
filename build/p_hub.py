@@ -47,6 +47,6 @@ def build():
 </div></section>
 """
             + dark('03', 'Let us show you on a call.', 'Twenty minutes, your questions, our platforms on screen.',
-                   [('<span data-count="30">30</span>+', 'Projects delivered'), ('<span data-count="20">20</span>+', 'Awards in AI'), ('2', 'Languages, Arabic and English')]).replace(
-                '<p class="small" style="color:#6b7177;margin-top:28px;position:relative">Illustrative estimates for a mid-size pharmaceutical warehouse.</p>', '')
+                   [('<span data-count="30">30</span>+', 'Projects delivered'), ('<span data-count="20">20</span>+', 'Awards in AI'), ('2', 'Languages, Arabic and English')], ink=True).replace(
+                '<p class="small" style="color:var(--soft);margin-top:28px;position:relative">Illustrative estimates for a mid-size pharmaceutical warehouse.</p>', '')
             + footer())

@@ -154,16 +154,16 @@ def checks(items):
     return '<ul class="checks">' + "".join(f'<li>{ic("check")}<span>{t}</span></li>' for t in items) + "</ul>"
 
 
-def dark(idx, title, lead, stats):
+def dark(idx, title, lead, stats, ink=False):
     st = "".join(f'<div class="stat" data-reveal style="--d:{i*100}ms"><div class="v">{v}</div><p class="l">{l}</p></div>'
                  for i, (v, l) in enumerate(stats))
-    return f"""<section class="section dark" id="results">
+    return f"""<section class="section dark{' ink' if ink else ''}" id="results">
   {APEX_BG}
   <div class="shell" style="position:relative">
     <div class="sec-head" data-reveal>{eyebrow(idx, 'Results')}<h2 class="h2">{title}</h2><p class="lead">{lead}</p></div>
     <div class="stats">{st}</div>
     <div class="cta-row" data-reveal>{cta()}<a class="mail" href="mailto:{MAIL}">{MAIL}</a></div>
-    <p class="small" style="color:#6b7177;margin-top:28px;position:relative">Illustrative estimates for a mid-size pharmaceutical warehouse.</p>
+    <p class="small" style="color:var(--soft);margin-top:28px;position:relative">Illustrative estimates for a mid-size pharmaceutical warehouse.</p>
   </div>
 </section>
 """
