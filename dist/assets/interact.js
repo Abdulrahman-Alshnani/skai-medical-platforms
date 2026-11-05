@@ -35,13 +35,6 @@
     document.addEventListener("keydown", function (e) { if (e.key === "Escape") sw.classList.remove("open"); });
   });
 
-  /* Back to top */
-  var top = document.querySelector(".to-top");
-  if (top) {
-    window.addEventListener("scroll", function () { top.classList.toggle("show", window.scrollY > window.innerHeight * 1.5); }, { passive: true });
-    top.addEventListener("click", function () { window.scrollTo({ top: 0, behavior: reduce ? "auto" : "smooth" }); });
-  }
-
   /* Live values in mockups (gentle jitter, as if streaming) */
   if (!reduce) {
     var ticks = Array.prototype.slice.call(document.querySelectorAll("[data-tick]"));
@@ -65,17 +58,6 @@
     });
   });
 
-  /* 3D tilt of the hero product */
-  document.querySelectorAll(".tilt").forEach(function (t) {
-    var host = t.closest(".hero") || t;
-    host.addEventListener("mousemove", function (e) {
-      var r = t.getBoundingClientRect();
-      var px = (e.clientX - (r.left + r.width / 2)) / (window.innerWidth / 2), py = (e.clientY - (r.top + r.height / 2)) / (window.innerHeight / 2);
-      t.style.transform = "rotateY(" + (px * 4).toFixed(2) + "deg) rotateX(" + (-py * 3).toFixed(2) + "deg)";
-    });
-    host.addEventListener("mouseleave", function () { t.style.transform = ""; });
-  });
-
   /* Card spotlight */
   document.querySelectorAll(".card").forEach(function (c) {
     c.addEventListener("mousemove", function (e) {
@@ -95,22 +77,5 @@
     b.addEventListener("mouseleave", function () { b.style.transform = ""; });
   });
 
-  /* Custom cursor: precise dot + trailing ring that grows over interactive things */
-  var dot = document.createElement("div"), ring = document.createElement("div");
-  dot.className = "cursor-dot"; ring.className = "cursor-ring";
-  document.body.append(dot, ring);
-  var mx = -100, my = -100, rx = -100, ry = -100;
-  window.addEventListener("mousemove", function (e) {
-    mx = e.clientX; my = e.clientY; document.body.classList.add("cursor-on");
-    dot.style.transform = "translate(" + mx + "px," + my + "px)";
-    var hot = e.target.closest && e.target.closest("a, button, .card, [data-hot]");
-    ring.classList.toggle("hot", !!hot);
-    document.body.classList.toggle("dark-hover", !!(e.target.closest && e.target.closest(".dark, .band:not(.light)")));
-  }, { passive: true });
-  document.addEventListener("mouseleave", function () { document.body.classList.remove("cursor-on"); });
-  (function loop() {
-    rx += (mx - rx) * 0.18; ry += (my - ry) * 0.18;
-    ring.style.transform = "translate(" + rx.toFixed(1) + "px," + ry.toFixed(1) + "px)";
-    requestAnimationFrame(loop);
-  })();
+
 })();

@@ -183,7 +183,6 @@ def footer():
   </div>
 </footer>
 <div class="cta-bar"><a class="btn" href="{CAL}" target="_blank" rel="noopener">Book a free 20-minute discovery call {ic('arrow')}</a></div>
-<button class="to-top" type="button" aria-label="Back to top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m18 15-6-6-6 6"/></svg></button>
 <script src="/assets/site.js" defer></script>
 <script src="/assets/interact.js" defer></script>
 </body>
