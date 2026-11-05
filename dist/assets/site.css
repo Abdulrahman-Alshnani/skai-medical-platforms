@@ -94,9 +94,9 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 .site-header.scrolled { border-bottom-color: var(--line); }
 .site-header .bar { height: var(--header-h); display: flex; align-items: center; justify-content: space-between; gap: 24px; transition: height .2s ease-out; }
 .site-header.scrolled .bar { height: 56px; }
-.logo { display: inline-flex; align-items: center; gap: 12px; color: var(--black); }
-.logo svg { height: 18px; width: auto; }
-.logo .grp { font-size: 10px; letter-spacing: .42em; font-weight: 500; margin-top: 2px; }
+.logo { display: inline-flex; align-items: flex-end; gap: 12px; color: var(--black); line-height: 1; }
+.logo svg { display: block; height: 18px; width: auto; }
+.logo .grp { display: block; font-size: 9.5px; line-height: 1; letter-spacing: .42em; font-weight: 500; margin-right: -.42em; transform: translateY(1.3px); }
 .nav { display: none; gap: 32px; }
 .nav a { position: relative; font-size: var(--t-small); color: var(--grey); transition: color .2s; padding: 10px 0; }
 .nav a:hover, .nav a.active { color: var(--black); }
